@@ -44,20 +44,20 @@ public class Validator {
      *     <li>null</li>
      *     <li>empty String</li>
      *     <li>null value String</li>
-     *     <li>nil value String</li>
      *     <li>none value String</li>
+     *     <li>nil value String</li>
      * </ul>
      * @param toValidate String that needs validation
      * @return boolean with validation result
      */
     public static boolean isNotNull(String toValidate){
         if (toValidate == null) return false;
-        if (toValidate.isEmpty()) return false;
-        toValidate = toValidate.toUpperCase().trim();
         if ("".equals(toValidate)) return false;
-        if ("NULL".equals(toValidate)) return false;
-        if ("NONE".equals(toValidate)) return false;
-        if ("NIL".equals(toValidate)) return false;
+        
+        String normalizedToValidate = toValidate.toUpperCase().trim();
+        if ("NULL".equals(normalizedToValidate)) return false;
+        if ("NONE".equals(normalizedToValidate)) return false;
+        if ("NIL".equals(normalizedToValidate)) return false;
         return true;
     }
 
